@@ -2,3 +2,292 @@ p {
 	margin: 0;
 	padding: 0;
 }
+
+input,
+select,
+textarea {
+	border: 1px solid #86919b;
+	border-radius: 3px;
+	height: 28px;
+	margin: 0;
+	font-size: 16px;
+	padding: 0 10px;
+}
+
+button {
+	height: 30px;
+	background-color: #86919b;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	font-weight: normal;
+	font-size: 14px;
+
+	i {
+		padding-right: 5px;
+	}
+
+	&:hover {
+		background-color: darken(#86919b, 15%);
+		cursor: pointer;
+	}
+}
+
+.flexRow {
+	display: flex;
+	flex-direction: row;
+}
+
+.flexCol {
+	display: flex;
+	flex-direction: column;
+}
+
+.todoContainer {
+	display: flex;
+	flex-direction: row;
+	height: 100vh;
+}
+
+.search {
+	input {
+		width: 225px;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	i {
+		background: #86919b;
+		border-top-left-radius: 3px;
+		border-bottom-left-radius: 3px;
+		padding: 5px;
+		padding-top: 6px;
+		color: #fff;
+	}
+}
+
+// Categories
+.categoryContainer {
+	width: 20%;
+	background: #fff;
+	border-right: 1px solid #86919b;
+	overflow-y: auto;
+
+	.categoryItem {
+		padding-left: 15px;
+		padding-top: 5px;
+		display: flex;
+		flex-direction: row;
+
+		i {
+			padding-right: 5px;
+		}
+	}
+
+	.categoryItem.selected {
+		font-weight: bold;
+	}
+
+	.categoryItem:hover {
+		cursor: pointer;
+		color: #86919b;
+
+		.fa-pencil-alt {
+			color: #000;
+			&:hover {
+				color: #86919b;
+			}
+		}
+
+		.fa-trash {
+			color: #000;
+			&:hover {
+				color: red;
+			}
+		}
+	}
+
+	.updateText {
+		padding-left: 20px;
+		padding-bottom: 5px;
+	}
+
+	.newCategory {
+		justify-content: center;
+	}
+
+	.editCategories {
+		justify-content: center;
+		margin-top: 10px;
+
+		&:hover {
+			color: #86919b;
+			cursor: pointer;
+		}
+	}
+}
+
+// Task
+.taskListContainer {
+	width: 50%;
+	background: #f7f8fa;
+	overflow-y: auto;
+
+	.taskTitle {
+		justify-content: space-between;
+		border-bottom: 1px solid #86919b;
+		padding: 15px;
+		background: #e1e1e1;
+
+		.toggleCompleted {
+			padding-top: 15px;
+			font-size: 14px;
+
+			&:hover {
+				color: #86919b;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.fa-plus-circle {
+		color: #86919b !important;
+		cursor: default !important;
+	}
+
+	.title {
+		font-size: 26px;
+		font-weight: bold;
+	}
+
+	.taskItems {
+		.taskItem {
+			display: flex;
+			flex-direction: row;
+			border-bottom: 1px solid #86919b;
+			font-size: 18px;
+			height: 60px;
+
+			i {
+				font-size: 23px;
+
+				&:hover {
+					color: #00ce00;
+					cursor: pointer;
+				}
+			}
+
+			.taskInfo {
+				padding-left: 15px;
+				justify-content: center;
+
+				&:hover {
+					color: #86919b;
+					cursor: pointer;
+				}
+
+				.title {
+					font-weight: 600;
+					font-size: 20px;
+				}
+
+				.dueDate {
+					font-size: 12px;
+					padding-left: 5px;
+					font-weight: normal;
+				}
+			}
+		}
+
+		.taskItem.completed {
+			color: #00ce00;
+			.title,
+			.dueDate {
+				text-decoration: line-through;
+			}
+		}
+
+		.taskItem.selected {
+			color: #000;
+			background: #ebe9e9;
+
+			.taskInfo:hover {
+				color: #000;
+			}
+		}
+	}
+}
+
+// Task
+.taskInfoContainer {
+	width: 30%;
+	background: #f5f5f5;
+	border-left: 1px solid #86919b;
+	justify-content: space-between;
+	padding-top: 10px;
+	overflow-y: auto;
+
+	.title {
+		justify-content: flex-start;
+		padding-left: 15px;
+		padding-bottom: 0;
+		font-size: 22px;
+		font-weight: bold;
+
+		.dueDate {
+			font-size: 14px;
+			font-weight: normal;
+			padding-left: 22px;
+		}
+
+		.toggleCompleted {
+			font-size: 14px;
+
+			&:hover {
+				color: #86919b;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.description {
+		padding-top: 15px;
+		padding-left: 15px;
+	}
+}
+
+// Task Edit
+.taskInfoContainerEdit {
+	width: 30%;
+	background: #f5f5f5;
+	border-left: 1px solid #86919b;
+	justify-content: flex-start;
+	padding-top: 10px;
+
+	.formGroup {
+		padding: 10px;
+		display: flex;
+		flex-direction: column;
+
+		input {
+			width: 90%;
+		}
+
+		textarea {
+			width: 90%;
+			height: 125px;
+		}
+
+		select {
+			width: 94%;
+		}
+	}
+
+	.formGroup.hasError {
+		color: red;
+
+		input {
+			border-color: red;
+		}
+	}
+}
