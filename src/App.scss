@@ -63,6 +63,7 @@ button {
 		padding: 5px;
 		padding-top: 6px;
 		color: #fff;
+		max-height: 19px;
 	}
 }
 
@@ -181,20 +182,31 @@ button {
 				padding-left: 15px;
 				justify-content: center;
 
-				&:hover {
-					color: #86919b;
-					cursor: pointer;
-				}
-
 				.title {
 					font-weight: 600;
 					font-size: 20px;
+
+					&:hover {
+						color: #86919b;
+						cursor: pointer;
+					}
 				}
 
 				.dueDate {
 					font-size: 12px;
 					padding-left: 5px;
 					font-weight: normal;
+				}
+
+				.errorMessage {
+					color: red;
+					font-size: 12px;
+					padding-left: 45px;
+					display: none;
+				}
+
+				.errorMessage.active {
+					display: flex;
 				}
 			}
 		}

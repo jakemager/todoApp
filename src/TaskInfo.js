@@ -69,7 +69,6 @@ function EditTask(props) {
 			<div className="flexRow" style={{ justifyContent: 'flex-start', paddingLeft: 10 }}>
 				<button onClick={back}>Cancel</button>
 				<button style={{ margin: '0 5px' }} onClick={save}>
-					<i className="fa fa-trash" />
 					Save
 				</button>
 			</div>

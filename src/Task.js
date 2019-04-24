@@ -24,8 +24,10 @@ function Task(props) {
 				/>
 			</div>
 
-			<div className="taskInfo flexCol" onClick={props.setSelectTask}>
-				<p className="title">{name}</p>
+			<div className="taskInfo flexCol">
+				<p className="title" onClick={props.setSelectTask}>
+					{name}
+				</p>
 				{!!dueDate && (
 					<p className="dueDate" style={{ color: passedDue && !completed ? 'red' : '' }}>
 						Due: {dueDate}

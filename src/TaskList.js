@@ -11,8 +11,14 @@ function TaskList(props) {
 	const [filter, setFilter] = useState('');
 	const [showCompleted, setShowCompleted] = useState(true);
 	const [newTaskText, setNewTaskText] = useState('');
+	const [error, setError] = useState(null);
 
 	function createTask() {
+		if (newTaskText.length === 0) {
+			setError('Task name required');
+			return;
+		}
+
 		let newTask = {
 			categoryId: props.selectedCategory.length ? props.selectedCategory : '',
 			completed: false,
@@ -24,6 +30,7 @@ function TaskList(props) {
 		props.updateTask(newTask);
 
 		setNewTaskText('');
+		setError(null);
 	}
 
 	return (
@@ -47,16 +54,13 @@ function TaskList(props) {
 			</div>
 			<div className="taskItems">
 				<div className="taskItem">
-					<div style={{ paddingTop: 20, paddingLeft: 15 }}>
-						<i className="fa fa-plus-circle" />
-					</div>
-
 					<div className="taskInfo flexCol">
 						<div className="flexRow">
+							<i className="fa fa-plus-circle" style={{ paddingTop: 5, paddingRight: 15 }} />
 							<input
 								type="text"
 								placeholder="New Task"
-								style={{ width: 400 }}
+								style={{ width: 400, border: !!error ? '1px solid red' : '' }}
 								onChange={e => setNewTaskText(e.target.value)}
 								onKeyDown={e => {
 									e.keyCode === 13 && createTask();
@@ -67,6 +71,7 @@ function TaskList(props) {
 								Create
 							</button>
 						</div>
+						<div className={`errorMessage ${!!error ? 'active' : ''}`}>{error}</div>
 					</div>
 				</div>
 				{props.tasks
