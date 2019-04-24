@@ -8,7 +8,7 @@ Can see the app online at <http://jakemager.com/TodoApp>
 - CRUD Task
 - Show/Hide completed task
 - Show by category only
-- Tasks inclue name, due date, and description
+- Tasks includes name, due date, and description
 - Search categories and task by name
 
 ### Installation and Running
